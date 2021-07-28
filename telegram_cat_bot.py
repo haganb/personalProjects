@@ -5,11 +5,15 @@ import praw
 import random
 import logging
 import os
+import json
 
-# Global vars
-TOKEN = os.environ.get("TOKEN")
-REDDIT_SECRET = os.environ.get("REDDIT_SECRET")
-REDDIT_ID = os.environ.get("REDDIT_ID")
+# Global vars and api stuff
+# Not in repo for obvious reasons, replace with your own API tokens/secrets to test
+with open("vars.json") as f:
+    info = json.load(f)
+TOKEN = info["TOKEN"]
+REDDIT_SECRET = info["REDDIT_SECRET"]
+REDDIT_ID = info["REDDIT_ID"]
 
 reddit = praw.Reddit(
         client_id=REDDIT_ID,
